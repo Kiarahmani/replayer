@@ -60,10 +60,14 @@ public class Transaction {
 
 	// run the transaction wrapper
 	public void run() {
+
+		System.out.println("\n\n\n\n==============================================");
+		System.out.println(methodName + "(" + args + ")");
+		System.out.println("==============================================\n");
+
 		// invoke the req
 		try {
 			Method method = client.getClass().getMethod(methodName, argTypesArray);
-			System.out.println("****" + argsArray);
 			method.invoke(client, argsArray);
 		} catch (NoSuchMethodException e2) {
 			System.err.println("Unknown Transaction Name: " + methodName);
@@ -77,6 +81,7 @@ public class Transaction {
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
+		System.out.println("==============================================\n\n\n\n\n\n\n");
 	}
 
 }

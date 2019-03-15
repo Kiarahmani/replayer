@@ -31,7 +31,7 @@ public class Client {
 		}
 	}
 
-	public void transactionOne(Long someLong, String someText) throws Exception {
+	public void firstTXN(Long key) throws Exception {
 
 		Class.forName("com.github.adejanovski.cassandra.jdbc.CassandraDriver");
 		try {
@@ -40,7 +40,8 @@ public class Client {
 			e.printStackTrace();
 		}
 		System.out.println("successfully connected to Cassandra! \n" + connect);
-		preparedStatement = connect.prepareStatement("SELECT balance FROM accounts WHERE id = 2");
+		preparedStatement = connect.prepareStatement("SELECT balance FROM accounts WHERE id = ?");
+		preparedStatement.setInt(1, (int) (long) key);
 		rs = preparedStatement.executeQuery();
 		rs.next();
 		int balance = rs.getInt("balance");
@@ -49,7 +50,7 @@ public class Client {
 
 	}
 
-	public void transactionTwo(Long id, Long anotherId, String someText) {
+	public void seocndTXN(Long id, Long anotherId) {
 		for (int i = 0; i < 50; i++) {
 			System.out.println(i + ": I am transactionTwo! id:" + id);
 			try {
@@ -60,7 +61,7 @@ public class Client {
 		}
 	}
 
-	public void transactionSomeStupidName(Long id, String text1, Long someLong, String text2, Long lastLong) {
+	public void thirdTXN(Long id, String text1, Long someLong) {
 		for (int i = 0; i < 50; i++) {
 			System.out.println(i + ": I am transactionTwo! id:" + id);
 			try {

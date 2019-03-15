@@ -81,7 +81,7 @@ public class Transaction {
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
-		System.out.println("==============================================\n\n\n\n\n\n\n");
+		System.out.println("\n==============================================\n\n\n\n\n\n\n");
 	}
 
 }

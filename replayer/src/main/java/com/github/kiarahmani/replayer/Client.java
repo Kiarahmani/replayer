@@ -43,9 +43,10 @@ public class Client {
 		preparedStatement = connect.prepareStatement("SELECT balance FROM accounts WHERE id = ?");
 		preparedStatement.setInt(1, (int) (long) key);
 		rs = preparedStatement.executeQuery();
-		rs.next();
-		int balance = rs.getInt("balance");
-		System.out.println("the balance for the read account is: " + balance);
+		if (rs.next()) {
+			int balance = rs.getInt("balance");
+			System.out.println("the balance for the read account is: " + balance);
+		}
 		close();
 
 	}

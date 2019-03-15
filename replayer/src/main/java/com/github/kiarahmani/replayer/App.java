@@ -4,9 +4,8 @@ public class App
 {
     public static void main( String[] args )
     {
-    	String txnType = args[0];
-		int id = Integer.valueOf(args[1]);
+		int id = Integer.valueOf(args[0]);
 		Transaction txn = new Transaction(id);
-		txn.run(txnType);
+		txn.run();
     }
 }

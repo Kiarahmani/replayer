@@ -31,11 +31,11 @@ public class Client {
 		}
 	}
 
-	public long transactionOne(int id) throws Exception {
+	public void transactionOne(Long someLong, String someText) throws Exception {
 
 		Class.forName("com.github.adejanovski.cassandra.jdbc.CassandraDriver");
 		try {
-			connect = DriverManager.getConnection("jdbc:cassandra://localhost" + ":1904" + id + "/testks");
+			connect = DriverManager.getConnection("jdbc:cassandra://localhost" + ":1904" + this.id + "/testks");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -47,10 +47,9 @@ public class Client {
 		System.out.println("the balance for the read account is: " + balance);
 		close();
 
-		return 0;
 	}
 
-	public long transactionTwo(int id) {
+	public void transactionTwo(Long id, Long anotherId, String someText) {
 		for (int i = 0; i < 50; i++) {
 			System.out.println(i + ": I am transactionTwo! id:" + id);
 			try {
@@ -59,7 +58,17 @@ public class Client {
 				e.printStackTrace();
 			}
 		}
-		return 0;
+	}
+
+	public void transactionSomeStupidName(Long id, String text1, Long someLong, String text2, Long lastLong) {
+		for (int i = 0; i < 50; i++) {
+			System.out.println(i + ": I am transactionTwo! id:" + id);
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

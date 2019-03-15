@@ -31,11 +31,21 @@
 
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.github.adejanovski</groupId>
+			<artifactId>cassandra-jdbc-wrapper</artifactId>
+			<version>69.1.1</version>
+		</dependency>
+		
+		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 </project>

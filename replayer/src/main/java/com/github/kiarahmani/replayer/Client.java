@@ -1,6 +1,7 @@
 package com.github.kiarahmani.replayer;
 
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +22,16 @@ public class Client {
 		this.id = id;
 		p = new Properties();
 		p.setProperty("id", String.valueOf(this.id));
+		Object o;
+		try {
+			o = Class.forName("MyDriver").newInstance();
+			System.out.println("+++" + o);
+			DriverManager.registerDriver((Driver) o);
+			Driver driver = DriverManager.getDriver("jdbc:mydriver://");
+			connect = driver.connect("", p);
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void close() {
@@ -31,46 +42,38 @@ public class Client {
 		}
 	}
 
-	public void firstTXN(Long key) throws Exception {
-
-		Class.forName("com.github.adejanovski.cassandra.jdbc.CassandraDriver");
-		try {
-			connect = DriverManager.getConnection("jdbc:cassandra://localhost" + ":1904" + this.id + "/testks");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		System.out.println("successfully connected to Cassandra! \n" + connect);
+	public void deposit(Long key, Long amount) throws Exception {
 		preparedStatement = connect.prepareStatement("SELECT balance FROM accounts WHERE id = ?");
 		preparedStatement.setInt(1, (int) (long) key);
 		rs = preparedStatement.executeQuery();
-		if (rs.next()) {
-			int balance = rs.getInt("balance");
-			System.out.println("the balance for the read account is: " + balance);
-		}
+		if (!rs.next())
+			return;
+		int balance = rs.getInt("balance");
+		System.out.println("intial balance for the account #" + key + " is: " + balance);
+		//
+		preparedStatement = connect.prepareStatement("UPDATE accounts SET balance = ? WHERE id = ?");
+		preparedStatement.setInt(1, balance + (int) (long) amount);
+		preparedStatement.setInt(2, (int) (long) key);
+		preparedStatement.executeUpdate();
+
 		close();
-
 	}
 
-	public void seocndTXN(Long id, Long anotherId) {
-		for (int i = 0; i < 50; i++) {
-			System.out.println(i + ": I am transactionTwo! id:" + id);
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+	public void withdraw(Long key, Long amount) throws SQLException {
+		preparedStatement = connect.prepareStatement("SELECT balance FROM accounts WHERE id = ?");
+		preparedStatement.setInt(1, (int) (long) key);
+		rs = preparedStatement.executeQuery();
+		if (!rs.next())
+			return;
+		int balance = rs.getInt("balance");
+		System.out.println("intial balance for the account #" + key + " is: " + balance);
+		//
+		preparedStatement = connect.prepareStatement("UPDATE accounts SET balance = ? WHERE id = ?");
+		preparedStatement.setInt(1, balance - (int) (long) amount);
+		preparedStatement.setInt(2, (int) (long) key);
+		preparedStatement.executeUpdate();
 
-	public void thirdTXN(Long id, String text1, Long someLong) {
-		for (int i = 0; i < 50; i++) {
-			System.out.println(i + ": I am transactionTwo! id:" + id);
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+		close();
 	}
 
 }

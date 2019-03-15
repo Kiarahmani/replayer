@@ -24,7 +24,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.2.1</version>
 				<configuration>
-					<mainClass>com.github.kiarahmani.replayer.App</mainClass>
+				<mainClass>com.github.kiarahmani.replayer.App</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -33,6 +33,12 @@
 
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.github.kiarahmani</groupId>
+			<artifactId>driver</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>

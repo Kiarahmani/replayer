@@ -61,9 +61,9 @@ public class Transaction {
 	// run the transaction wrapper
 	public void run() {
 
-		System.out.println("\n\n\n\n==============================================");
+		System.out.println("\n\n\n\n=============================================================");
 		System.out.println(methodName + "(" + args + ")");
-		System.out.println("==============================================\n");
+		System.out.println("=============================================================\n");
 
 		// invoke the req
 		try {
@@ -81,7 +81,7 @@ public class Transaction {
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
 		}
-		System.out.println("\n==============================================\n\n\n\n\n\n\n");
+		System.out.println("\n=============================================================\n\n\n\n\n\n\n");
 	}
 
 }

@@ -22,12 +22,12 @@ public class Transaction {
 	private Object[] argsArray;
 
 	// constructor
-	public Transaction(int id) {
+	public Transaction(int id, String benchmark, int testNumber) {
 		this.id = id;
 		client = new Client(id);
 		// read the test config file
 		JSONParser jsonParser = new JSONParser();
-		try (FileReader reader = new FileReader("config/1/instance.json")) {
+		try (FileReader reader = new FileReader("config/" + benchmark + "/" + testNumber + "/instance.json")) {
 			// Read JSON file
 			Object obj = jsonParser.parse(reader);
 			JSONArray txnList = (JSONArray) obj;

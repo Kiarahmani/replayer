@@ -1,0 +1,14 @@
+[
+    {
+        "1": {
+            "methodName": "payment",
+            "args": [100, 99, false, 16, "", 25, 9, 11]
+        }
+    },
+ 	{
+        "2": {
+            "methodName": "delivery",
+            "args": [9, 11]
+        }
+    }
+]

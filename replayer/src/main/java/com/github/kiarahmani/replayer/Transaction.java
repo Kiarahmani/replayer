@@ -62,7 +62,7 @@ public class Transaction {
 	public void run() {
 
 		System.out.println("\n\n\n\n=============================================================");
-		System.out.println(methodName + "(" + args + ")");
+		System.out.println("@R" + id + "    " + methodName + "(" + args + ")");
 		System.out.println("=============================================================\n");
 
 		// invoke the req

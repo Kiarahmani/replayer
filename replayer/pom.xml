@@ -24,7 +24,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.2.1</version>
 				<configuration>
-				<mainClass>com.github.kiarahmani.replayer.App</mainClass>
+					<mainClass>com.github.kiarahmani.replayer.App</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -51,7 +51,6 @@
 			<artifactId>cassandra-jdbc-wrapper</artifactId>
 			<version>69.1.1</version>
 		</dependency>
-
 
 
 		<dependency>

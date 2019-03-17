@@ -12,7 +12,6 @@ import java.util.Properties;
 public class Client {
 	private Connection connect = null;
 	private Statement stmt = null;
-	private PreparedStatement preparedStatement = null;
 	private ResultSet rs = null;
 	private int _ISOLATION = Connection.TRANSACTION_READ_UNCOMMITTED;
 	private int id;
@@ -43,35 +42,36 @@ public class Client {
 	}
 
 	public void deposit(Long key, Long amount) throws Exception {
-		preparedStatement = connect.prepareStatement("SELECT balance FROM accounts WHERE id = ?");
-		preparedStatement.setInt(1, (int) (long) key);
-		rs = preparedStatement.executeQuery();
+
+		PreparedStatement preparedStatement1 = connect.prepareStatement("SELECT balance FROM accounts WHERE id = ?");
+		preparedStatement1.setInt(1, (int) (long) key);
+		rs = preparedStatement1.executeQuery();
 		if (!rs.next())
 			return;
 		int balance = rs.getInt("balance");
-		System.out.println("intial balance for the account #" + key + " is: " + balance);
-		//
-		preparedStatement = connect.prepareStatement("UPDATE accounts SET balance = ? WHERE id = ?");
-		preparedStatement.setInt(1, balance + (int) (long) amount);
-		preparedStatement.setInt(2, (int) (long) key);
-		preparedStatement.executeUpdate();
+		PreparedStatement preparedStatement2 = connect.prepareStatement("UPDATE accounts SET balance = ? WHERE id = ?");
+
+		preparedStatement2.setInt(1, balance + (int) (long) amount);
+		preparedStatement2.setInt(2, (int) (long) key);
+		preparedStatement2.executeUpdate();
 
 		close();
 	}
 
 	public void withdraw(Long key, Long amount) throws SQLException {
-		preparedStatement = connect.prepareStatement("SELECT balance FROM accounts WHERE id = ?");
-		preparedStatement.setInt(1, (int) (long) key);
-		rs = preparedStatement.executeQuery();
+		PreparedStatement preparedStatement1 = connect.prepareStatement("SELECT balance FROM accounts WHERE id = ?");
+		preparedStatement1.setInt(1, (int) (long) key);
+		rs = preparedStatement1.executeQuery();
 		if (!rs.next())
 			return;
 		int balance = rs.getInt("balance");
-		System.out.println("intial balance for the account #" + key + " is: " + balance);
+		// System.out.println("intial balance for the account #" + key + " is: " +
+		// balance);
 		//
-		preparedStatement = connect.prepareStatement("UPDATE accounts SET balance = ? WHERE id = ?");
-		preparedStatement.setInt(1, balance - (int) (long) amount);
-		preparedStatement.setInt(2, (int) (long) key);
-		preparedStatement.executeUpdate();
+		PreparedStatement preparedStatement2 = connect.prepareStatement("UPDATE accounts SET balance = ? WHERE id = ?");
+		preparedStatement2.setInt(1, balance - (int) (long) amount);
+		preparedStatement2.setInt(2, (int) (long) key);
+		preparedStatement2.executeUpdate();
 
 		close();
 	}

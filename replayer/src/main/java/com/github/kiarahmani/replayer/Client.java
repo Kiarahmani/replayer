@@ -31,7 +31,7 @@ public class Client {
 		try {
 			o = Class.forName("MyDriver").newInstance();
 			DriverManager.registerDriver((Driver) o);
-			Driver driver = DriverManager.getDriver("jdbc:mydriver://");
+			Driver driver = DriverManager.getDriver("jdbc:cassandra://");
 			System.out.println(driver);
 			connect = driver.connect("", p);
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {

@@ -29,16 +29,11 @@ public class Client {
 		p.setProperty("id", String.valueOf(this.id));
 		Object o;
 		try {
-			System.out.println("1");
 			o = Class.forName("MyDriver").newInstance();
-			System.out.println("2");
 			DriverManager.registerDriver((Driver) o);
-			System.out.println("3");
 			Driver driver = DriverManager.getDriver("jdbc:mydriver://");
-			System.out.println("4");
-			System.out.println(p);
+			System.out.println(driver);
 			connect = driver.connect("", p);
-			System.out.println("5");
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

@@ -35,6 +35,10 @@ public class Client {
 			//Driver driver = DriverManager.getDriver("jdbc:mydriver://");
 			System.out.println(driver);
 			connect = driver.connect("", p);
+			System.out.println(connect);
+			PreparedStatement stmt0 = connect.prepareStatement("SELECT * FROM " + "ACCOUNTS" + " WHERE custid = ?");
+			stmt0.setLong(1, 2);
+			ResultSet r0 = stmt0.executeQuery();
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

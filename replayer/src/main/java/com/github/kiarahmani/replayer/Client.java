@@ -31,7 +31,7 @@ public class Client {
 		try {
 			o = Class.forName("MyDriver").newInstance();
 			DriverManager.registerDriver((Driver) o);
-			Driver driver = DriverManager.getDriver("jdbc:cassandra://localhost:19041/testks");
+			Driver driver = DriverManager.getDriver("jdbc:cassandra://0.0.0.0:19041/testks");
 			//Driver driver = DriverManager.getDriver("jdbc:mydriver://");
 			System.out.println(driver);
 			connect = driver.connect("", p);

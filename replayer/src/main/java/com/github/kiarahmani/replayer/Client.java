@@ -36,6 +36,7 @@ public class Client {
 			System.out.println("3");
 			Driver driver = DriverManager.getDriver("jdbc:mydriver://");
 			System.out.println("4");
+			System.out.println(p);
 			connect = driver.connect("", p);
 			System.out.println("5");
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {

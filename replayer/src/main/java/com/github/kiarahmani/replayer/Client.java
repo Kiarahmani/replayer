@@ -31,14 +31,8 @@ public class Client {
 		try {
 			o = Class.forName("MyDriver").newInstance();
 			DriverManager.registerDriver((Driver) o);
-			Driver driver = DriverManager.getDriver("jdbc:cassandra://0.0.0.0:19041/testks");
-			//Driver driver = DriverManager.getDriver("jdbc:mydriver://");
-			System.out.println(driver);
+			Driver driver = DriverManager.getDriver("jdbc:mydriver://");
 			connect = driver.connect("", p);
-			System.out.println(connect);
-			PreparedStatement stmt0 = connect.prepareStatement("SELECT * FROM " + "ACCOUNTS" + " WHERE custid = ?");
-			stmt0.setLong(1, 2);
-			ResultSet r0 = stmt0.executeQuery();
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

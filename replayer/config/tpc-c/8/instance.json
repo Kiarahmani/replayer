@@ -2,13 +2,13 @@
     {
         "1": {
             "methodName": "payment",
-            "args": [10, 0, false, 11, "", 11, 0, 12]
+            "args": [104,20,0,24,"",24,24,0]
         }
     },
  	{
         "2": {
-            "methodName": "payment",
-            "args": [10, 0, false, 11, "", 11, 0, 12]
+             "methodName": "payment",
+            "args": [104,20,0,24,"",24,24,0]
         }
     }
 ]

@@ -1,0 +1,14 @@
+[
+    {
+        "1": {
+            "methodName": "newReservation",
+            "args": [0,32,22,35,0]
+        }
+    },
+ 	{
+        "2": {
+            "methodName": "newReservation",
+            "args": [0,32,24,36,0]
+        }
+    }
+]

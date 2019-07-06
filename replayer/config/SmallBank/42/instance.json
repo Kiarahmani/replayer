@@ -1,0 +1,14 @@
+[
+    {
+        "1": {
+            "methodName": "sendPayment",
+            "args": [11,12,0]
+        }
+    },
+ 	{
+        "2": {
+            "methodName": "amalgamate",
+            "args": [12,11]
+        }
+    }
+]

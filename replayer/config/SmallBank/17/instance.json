@@ -1,0 +1,14 @@
+[
+    {
+        "1": {
+            "methodName": "sendPayment",
+            "args": [8,8,0]
+        }
+    },
+ 	{
+        "2": {
+            "methodName": "writeCheck",
+            "args": ["",0]
+        }
+    }
+]

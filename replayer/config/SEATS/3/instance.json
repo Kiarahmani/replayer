@@ -1,0 +1,14 @@
+[
+    {
+        "1": {
+            "methodName": "newReservation",
+            "args": [0,-1,18,32,0]
+        }
+    },
+ 	{
+        "2": {
+            "methodName": "deleteReservation",
+            "args": [0,0,"","",29,-1]
+        }
+    }
+]

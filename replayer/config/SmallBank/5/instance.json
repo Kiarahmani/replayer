@@ -1,0 +1,14 @@
+[
+    {
+        "1": {
+            "methodName": "amalgamate",
+            "args": [21,9]
+        }
+    },
+ 	{
+        "2": {
+            "methodName": "amalgamate",
+            "args": [12,9]
+        }
+    }
+]

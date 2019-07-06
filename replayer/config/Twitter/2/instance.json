@@ -1,0 +1,21 @@
+[
+    {
+        "1": {
+            "methodName": "insertTweet",
+            "args": [14,"tweet1",""]
+        }
+    },
+ 	{
+        "2": {
+             "methodName": "insertTweet",
+            "args": [14,"tweet2",""]
+        }
+    }
+,
+ 	{
+        "3": {
+             "methodName": "insertTweet",
+            "args": [14,"tweet3",""]
+        }
+    }
+]

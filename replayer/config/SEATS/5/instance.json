@@ -1,0 +1,14 @@
+[
+    {
+        "1": {
+            "methodName": "updateCustomer",
+            "args": [84,0,"",15,1,18,20]
+        }
+    },
+ 	{
+        "2": {
+            "methodName": "updateCustomer",
+            "args": [84,0,"",15,1,18,20]
+        }
+    }
+]

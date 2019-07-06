@@ -1,0 +1,14 @@
+[
+    {
+        "1": {
+            "methodName": "transactSavings",
+            "args": ["",-1]
+        }
+    },
+ 	{
+        "2": {
+            "methodName": "amalgamate",
+            "args": [12,12]
+        }
+    }
+]

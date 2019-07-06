@@ -2,13 +2,13 @@
     {
         "1": {
             "methodName": "delivery",
-            "args": [12, 11]
+            "args": [8,0]
         }
     },
  	{
         "2": {
-            "methodName": "delivery",
-            "args": [12, 11]
+             "methodName": "delivery",
+            "args": [8,0]
         }
     }
 ]

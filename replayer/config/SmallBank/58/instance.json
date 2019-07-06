@@ -1,0 +1,14 @@
+[
+    {
+        "2": {
+            "methodName": "amalgamate",
+            "args": [15,11]
+        }
+    },
+ 	{
+        "1": {
+            "methodName": "writeCheck",
+            "args": ["",1]
+        }
+    }
+]

@@ -1,0 +1,14 @@
+[
+    {
+        "1": {
+            "methodName": "writeCheck",
+            "args": ["",0]
+        }
+    },
+ 	{
+        "2": {
+            "methodName": "balance",
+            "args": [""]
+        }
+    }
+]
